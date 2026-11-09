@@ -1,0 +1,1 @@
+﻿# SASAA – Gnani client tests

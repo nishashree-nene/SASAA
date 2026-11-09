@@ -1,0 +1,1 @@
+﻿# SASAA – Auth tests

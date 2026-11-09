@@ -1,0 +1,1 @@
+﻿# SASAA – Message API tests

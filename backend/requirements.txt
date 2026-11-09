@@ -1,0 +1,67 @@
+# ============================================================
+# SASAA Backend – Python Dependencies
+# Python 3.11+  |  All versions are pinned for reproducibility
+# ============================================================
+
+# ── Web framework ────────────────────────────────────────────
+fastapi==0.115.5
+uvicorn[standard]==0.32.1          # ASGI server with hot-reload support
+
+# ── Database ─────────────────────────────────────────────────
+sqlalchemy==2.0.36                 # ORM (async-capable)
+asyncpg==0.30.0                    # Async PostgreSQL driver for SQLAlchemy
+psycopg2-binary==2.9.10            # Sync driver (used by Alembic)
+alembic==1.14.0                    # Database migrations
+
+# ── Validation & serialisation ───────────────────────────────
+pydantic==2.10.1                   # Request/response validation (v2)
+pydantic-settings==2.6.1           # Reads settings from .env via BaseSettings
+email-validator==2.2.0             # Validates email addresses in Pydantic schemas
+
+# ── Authentication ───────────────────────────────────────────
+python-jose[cryptography]==3.3.0   # JWT encoding and decoding
+passlib[bcrypt]==1.7.4             # Secure password hashing (bcrypt)
+bcrypt==4.0.1                      # Pinned: passlib 1.7.4 is incompatible with bcrypt 5.x
+python-multipart==0.0.12           # Required for file uploads in FastAPI
+
+# ── HTTP client ──────────────────────────────────────────────
+httpx==0.27.2                      # Async HTTP client (used in Gnani client)
+requests==2.34.2                   # Sync HTTP (already installed, kept for gnani_client)
+
+# ── Audio processing ─────────────────────────────────────────
+pydub==0.25.1                      # Audio format conversion
+aiofiles==24.1.0                   # Async file I/O for audio uploads
+
+# ── Background tasks ─────────────────────────────────────────
+# Using FastAPI BackgroundTasks (built-in) for MVP.
+# Celery/Redis added in a later phase when needed.
+
+# ── NLP / text processing ────────────────────────────────────
+spacy==3.8.3                       # Named entity recognition (names, places)
+# After install, run:  python -m spacy download en_core_web_sm
+
+# ── Translation ──────────────────────────────────────────────
+deep-translator==1.11.4            # Google Translate wrapper (already installed)
+
+# ── Notifications ────────────────────────────────────────────
+firebase-admin==6.6.0              # FCM push notifications
+pywebpush==2.0.0                   # Web Push API (VAPID)
+
+# ── Email ────────────────────────────────────────────────────
+fastapi-mail==1.4.1                # SMTP email sending
+
+# ── Environment & configuration ──────────────────────────────
+python-dotenv==1.2.4               # Reads .env files (already installed)
+
+# ── Utilities ────────────────────────────────────────────────
+python-dateutil==2.9.0.post0       # Flexible date parsing
+pytz==2024.2                       # Timezone handling
+uuid==1.30                         # UUID generation helpers
+
+# ── Testing ──────────────────────────────────────────────────
+pytest==8.3.3
+pytest-asyncio==0.24.0
+httpx==0.27.2                      # Also used as AsyncClient in tests
+
+# ── Logging ──────────────────────────────────────────────────
+structlog==24.4.0                  # Structured JSON logging
